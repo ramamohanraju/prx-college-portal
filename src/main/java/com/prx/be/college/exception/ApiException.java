@@ -1,4 +1,4 @@
-package com.prx.be.college;
+package com.prx.be.college.exception;
 
 public class ApiException extends RuntimeException {
     public ApiException(String msg) {

@@ -17,6 +17,7 @@ Urls:
 Things to implement further:
 - Use postgres db
 - Interfaces for services and DAOs
+- Role based auth.
 - Authentication using auth0 or ocka
 - I could accept the file as multipart file type and blob type in the database but, currently I am using url as content
  upload to avoid using db to store videos and webinars

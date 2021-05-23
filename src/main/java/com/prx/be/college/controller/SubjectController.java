@@ -1,6 +1,6 @@
 package com.prx.be.college.controller;
 
-import com.prx.be.college.ApiException;
+import com.prx.be.college.exception.ApiException;
 import com.prx.be.college.model.Subject;
 import com.prx.be.college.service.SubjectService;
 import org.slf4j.Logger;
