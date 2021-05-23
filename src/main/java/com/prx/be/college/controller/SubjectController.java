@@ -1,5 +1,6 @@
 package com.prx.be.college.controller;
 
+import com.prx.be.college.ApiException;
 import com.prx.be.college.model.Subject;
 import com.prx.be.college.service.SubjectService;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class SubjectController {
             return subjectService.create(subject);
         } catch (RuntimeException exception) {
             LOGGER.error("error while creating subject - {}", exception.getMessage());
-            throw new RuntimeException("error while creating subject", exception);
+            throw new ApiException("error while creating subject", exception);
         }
     }
 
@@ -36,7 +37,7 @@ public class SubjectController {
             return subjectService.getByName(name);
         } catch (RuntimeException exception) {
             LOGGER.error("error while getting all subjects - {}", exception.getMessage());
-            throw new RuntimeException("error while getting all subjects", exception);
+            throw new ApiException("error while getting all subjects", exception);
         }
     }
 
@@ -46,7 +47,7 @@ public class SubjectController {
             return subjectService.get(id);
         } catch (RuntimeException exception) {
             LOGGER.error("error while getting subject with id {} - {}", id, exception.getMessage());
-            throw new RuntimeException("error while getting subject", exception);
+            throw new ApiException("error while getting subject", exception);
         }
     }
 
