@@ -3,18 +3,18 @@ package com.prx.be.college.model;
 import java.util.Objects;
 
 public class Subject {
-    int id;
+    long id;
     String name;
 
     public Subject() {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -50,13 +50,13 @@ public class Subject {
     }
 
     public static final class Builder {
-        private int id;
+        private long id;
         private String name;
 
         private Builder() {
         }
 
-        public Builder setId(int val) {
+        public Builder setId(long val) {
             id = val;
             return this;
         }

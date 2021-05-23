@@ -1,38 +1,32 @@
 package com.prx.be.college.service;
 
+import com.prx.be.college.dao.SubjectDao;
 import com.prx.be.college.model.Subject;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class SubjectService {
+    private final SubjectDao subjectDao;
+
+    public SubjectService(SubjectDao subjectDao) {
+        this.subjectDao = subjectDao;
+    }
 
     public Subject create(Subject subject) {
-        return Subject.newBuilder()
-                .setId(1)
-                .setName(subject.getName())
-                .build();
+        return subjectDao.save(subject);
     }
 
     public List<Subject> get() {
-        return Arrays.asList(
-                Subject.newBuilder()
-                        .setId(1)
-                        .setName("sample name1")
-                        .build(),
-                Subject.newBuilder()
-                        .setId(2)
-                        .setName("sample name2")
-                        .build()
-        );
+        return subjectDao.getAllSubjects();
     }
 
-    public Subject get(int id) {
-        return Subject.newBuilder()
-                .setId(id)
-                .setName("sample name " + id)
-                .build();
+    public Subject get(long id) {
+        return subjectDao.getById(id);
+    }
+
+    public List<Subject> getByName(String name) {
+        return subjectDao.getSubjectsByName(name);
     }
 }

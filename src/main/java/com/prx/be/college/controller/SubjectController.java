@@ -28,9 +28,12 @@ public class SubjectController {
     }
 
     @GetMapping(value = "/subjects")
-    public List<Subject> get() {
+    public List<Subject> get(@RequestParam(value = "name", required = false) String name) {
         try{
-            return subjectService.get();
+            if(name == null || name.isEmpty()) {
+                return subjectService.get();
+            }
+            return subjectService.getByName(name);
         } catch (RuntimeException exception) {
             LOGGER.error("error while getting all subjects - {}", exception.getMessage());
             throw new RuntimeException("error while getting all subjects", exception);
